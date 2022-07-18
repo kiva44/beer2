@@ -3,7 +3,7 @@ import { ButtonProps } from './Button.props';
 import cn from 'classnames';
 
 
-export const Button = ({ appearance, children, className, ...props }: ButtonProps): JSX.Element => {
+export const Button = ({ appearance, arrow = 'none', children, className, ...props }: ButtonProps): JSX.Element => {
 	return (
 		<button
 			className={cn(styles.button, className, {
@@ -13,8 +13,14 @@ export const Button = ({ appearance, children, className, ...props }: ButtonProp
 			{...props}
 		>
 			{children}
+			{arrow != 'none' && <span className={cn(styles.arrow, {
+				[styles.down]: arrow == 'down'
+			})}>
 
 
-		</button>
+			</span>}
+
+
+		</button >
 	);
 };
